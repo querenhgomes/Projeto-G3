@@ -214,3 +214,37 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
   
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+
+# API Reference
+
+  
+
+## Authentication and User information
+
+  
+
+### `/signup` - `POST`
+
+Register new user<br/><br/>
+
+**Headers**: No headers needed<br/><br/>
+
+**Success Status Code**: `201`<br/><br/>
+
+**Body**: `{ "email": String, "username": String, "password": String }`<br/><br/>
+
+**Response**: `{ "message": String, "data": { "email": String, "hashedPassword": String, "username": String } } `<br/><br/>
+
+  
+
+### `/login` - `POST`
+
+Authenticate existing user<br/><br/>
+
+**Headers**: No headers needed<br/><br/>
+
+**Success Status Code**: `200`<br/><br/>
+
+**Body**: `{ "email": String, "password": String }`<br/><br/>
+
+**Response**: `{ "message": String, "data": <whatever was sent in the body request> }`<br/><br/>

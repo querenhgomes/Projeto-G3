@@ -1,6 +1,7 @@
 
 const bcrypt = require("bcryptjs");
 let response;
+const { MONGODB_URI } = process.env;
 
 /**
  *
@@ -22,13 +23,13 @@ exports.lambdaHandler = async (event, context) => {
         delete body.password;
         body.hashedPassword = hash;
         response = {
-            'statusCode': 200,
+            'statusCode': 201,
             'headers': {
                 'Access-Control-Allow-Origin': '*'
             },
             'body': JSON.stringify({
-                message: body,
-                env: process.env.MONGODB_URI
+                message: "success",
+                data: body
             })
         }
     } catch (err) {
