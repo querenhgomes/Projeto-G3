@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './component/header';
 import Post from './component/post';
+import Moodal from './component/modal';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { render } from '@testing-library/react';
@@ -30,18 +31,32 @@ async function Axios() {
       
 
 
-<div class="container">
-              <div class="row text-dark">
+<div className="container">
+<div className="row">
+              <div className="col">
               {Nomer.map((item, key)=>{
          console.log(key)
         return(
-            <Post className="col-md-12 col-sm-12 col-xs-auto col-lg-12" key={key} titulo={item.gender} btntext={item.name.title} conteudo={item.email}/>  
+            <Post className="" key={key} gender={item.gender} btntext={item.name.title} email={item.email} conteudo ={"Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou par"}resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"}/>  
         )
        
 
       })}
               </div>
+              <div className="col-3 d-none d-lg-block">
+              {Nomer.map((item, key)=>{
+         console.log(key)
+        return(
+          <Moodal key={key} gender={item.gender} btntext={item.name.title} email={item.email} conteudo ={"Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou par"}resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"}/>
+           
+        )
+       
+
+      })}
+              
+              </div>
             
+          </div>
           </div>
     </div>
     
