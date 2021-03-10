@@ -1,9 +1,12 @@
-import React from 'react'
-import { Card, Button, Accordion } from 'react-bootstrap'
-
+import { Card, Button, Accordion, Modal  } from 'react-bootstrap'
+import React, {useState, useEffect} from 'react';
 
 function Post(props) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
+    
 
     <div>
       <br></br>
@@ -27,11 +30,25 @@ function Post(props) {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body>{props.conteudo + " " + props.gender + " " + props.key + " " + props.btntext}</Card.Body>
+            <Card.Body onClick={handleShow}>{props.resumo + " " + props.gender + " " + props.key + " " + props.btntext}</Card.Body>
           </Accordion.Collapse>
         </Card>
 
       </Accordion>
+
+
+      <Modal show={show} onHide={handleClose} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>{props.gender}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{props.conteudo}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+          </Button>
+                    
+                </Modal.Footer>
+            </Modal>
 
     </div>
   )
