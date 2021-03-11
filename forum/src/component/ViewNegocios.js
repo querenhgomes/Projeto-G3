@@ -1,4 +1,3 @@
-import Header from './header';
 import Post from './post';
 import Moodal from './modal';
 import axios from 'axios';
@@ -27,7 +26,10 @@ function Negocios() {
     return (
   
       <div className="App">
-      
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
   
         <div className="container">
           <div className="row">

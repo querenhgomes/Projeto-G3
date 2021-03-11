@@ -1,4 +1,4 @@
-import Header from './header';
+
 import Post from './post';
 import Moodal from './modal';
 import axios from 'axios';
@@ -27,11 +27,14 @@ function Educacao() {
     return (
   
       <div className="App">
-      
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
   
         <div className="container">
           <div className="row">
-  
+      
   
 
             {/* <div className="col-3 d-none d-lg-block">
