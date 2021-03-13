@@ -113,7 +113,7 @@ ehthumbs_vista.db
 
 # Folder config file
 Desktop.ini
-
+samconfig.toml
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

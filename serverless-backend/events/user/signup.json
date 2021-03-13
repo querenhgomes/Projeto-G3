@@ -1,5 +1,5 @@
 {
-    "body": "{\"email\": \"test@test.com\", \"username\": \"test\", \"password\": \"123\"}",
+    "body": "{\"email\": \"daniel@test.com\", \"name\": \"test\", \"password\": \"123sss\"}",
     "resource": "/{proxy+}",
     "path": "/signup",
     "httpMethod": "POST",

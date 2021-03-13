@@ -4,7 +4,25 @@ Description: >
   serverless-backend
 
   Template for serverless-backend
-  
+
+Parameters:
+  MongoConnection:
+    Type: String
+    Default: 'mongodb+srv://<user>:<password>@<mongo-database>.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    Description: (Required) Connection string for remote mongo DB database
+    MinLength: 90
+    MaxLength: 120
+    AllowedPattern: ^mongodb\+srv:\/\/.+:.+@.+\.mongodb.+$
+    ConstraintDescription: 'Required. Must include user and password.'
+  TokenSecret:
+    Type: String
+    Default: 'secret'
+    Description: (Required) Secret for JWT validation
+    MinLength: 3
+    MaxLength: 120
+    AllowedPattern: ^.+$
+    ConstraintDescription: 'Required'
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
@@ -13,8 +31,8 @@ Globals:
     Handler: app.lambdaHandler
     Environment:
             Variables:
-                MONGODB_URI: "mongo.teste"
-                JWT_SECRET: "integrador"
+                MONGODB_URI: !Ref MongoConnection
+                JWT_SECRET: !Ref TokenSecret
 
 Resources:
   SignUpFunction:
@@ -39,6 +57,8 @@ Resources:
           Properties:
             Path: /login
             Method: post
+      Layers:
+            - !Ref SharedLibsLayer
   # Layers
   SharedLibsLayer:
     Type: AWS::Serverless::LayerVersion
