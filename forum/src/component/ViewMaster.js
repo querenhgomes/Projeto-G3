@@ -1,4 +1,5 @@
 import Sidebar from './sidebar';
+import Sidenav from './SideNav';
 import Post from './post';
 import Moodal from './modal';
 import axios from 'axios';
@@ -12,7 +13,7 @@ function Master() {
     return(
         <>
         <Sidebar></Sidebar>
-
+        <Sidenav></Sidenav>
 
             </>
 

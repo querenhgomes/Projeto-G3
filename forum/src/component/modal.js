@@ -6,7 +6,8 @@ export default function Moodal(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <div>
+        <div> 
+            <br></br>
             <Card variant="primary" onClick={handleShow}>
                 <Card.Body>{props.resumo}</Card.Body>
             </Card>

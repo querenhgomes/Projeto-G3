@@ -27,7 +27,7 @@ function Home() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
+      
   
         <div className="container">
           <div className="row">
@@ -38,8 +38,10 @@ function Home() {
               {Nomer.map((item, key) => {
                 console.log(key)
                 return (
+                  <>
                   <Moodal key={key} gender={item.gender} btntext={item.name.title} email={item.email} conteudo={"Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou par"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
-  
+                    
+                    </>
                 )
   
   
@@ -47,7 +49,7 @@ function Home() {
   
             </div>
             <div className="sidebar-expanded col-2 d-none d-md-block">
-                <div className="sidenav">
+                <div className="">
 
               {Nomer.map((item, key) => {
                 console.log(key)
