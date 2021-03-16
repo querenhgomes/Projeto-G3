@@ -65,18 +65,22 @@ function Aside() {
             <div id="mySidenav" className="sidenav" style={isOpen ? open : closed}>
                 <span className="closebtn" onClick={openNav}>&times;</span>
                 <div className="text-effect">
-                    <a href="/#" className="active">
+                    <a href="/home" className="active">
                         <span className="glyphicon glyphicon-home"></span>&nbsp;Home
                     </a>
-                    <a href="/#">
+                    <a href="/jogos">
                         <span className="glyphicon glyphicon-user"></span>
                         &nbsp;Portfolio
                     </a>
-                    <a href="/#">
+                    <a href="/negocios">
                         <span className="glyphicon glyphicon-tasks"></span>
                         &nbsp;Projects
                     </a>
-                    <a href="/#">
+                    <a href="/educacao">
+                        <span className="glyphicon glyphicon-phone-alt"></span>
+                        &nbsp;Contact
+                    </a>
+                    <a href="/tec">
                         <span className="glyphicon glyphicon-phone-alt"></span>
                         &nbsp;Contact
                     </a>
