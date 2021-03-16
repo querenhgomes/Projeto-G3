@@ -28,7 +28,7 @@ const style={
             {console.log(Color)}
             <Router>
             
-            <Navbar fixed="top"  className="text-primary" style={style}  expand="lg">
+            {/* <Navbar fixed="top"  className="text-primary" style={style}  expand="lg">
                     
                     <Navbar.Toggle  className="nav ml-auto text-primary" aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse className="nav mx-auto text-primary" id="basic-navbar-nav">
@@ -42,7 +42,7 @@ const style={
                       
                     </Navbar.Collapse>
                     
-                </Navbar>
+                </Navbar> */}
                 
                <Switch>
                     <Route path="/home" exact={true}  component={Home}/>

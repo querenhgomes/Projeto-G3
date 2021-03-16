@@ -1,0 +1,137 @@
+/* Also import bootstrap css*/
+
+.sidenav{
+    width: 0;
+    position: fixed !important;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    background-color: rgb(33,33,33);
+    min-height: 100vh;
+    height: 100vh;
+}
+
+.sidenav span{
+    height: 60px;
+    line-height: 50px;
+    padding: 8px 8px 10px 35px;
+    text-decoration: none;
+    font-size: 25px;
+    word-break: keep-all;
+    word-wrap: normal;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a{
+    height: 60px;
+    line-height: 50px;
+    padding: 8px 8px 10px 35px;
+    text-decoration: none;
+    font-size: 25px;
+    word-break: keep-all;
+    word-wrap: normal;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav div a{
+    width: 200px;
+    transition: margin 0.8s;
+    -webkit-transition: margin 0.8s;
+    -moz-transition: margin 0.8s;
+    -o-transition: margin 0.8s;
+}
+
+.sidenav div a:hover{
+    border-bottom: 2px solid white;
+    border-radius: 10px;
+    margin-left: 12px;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 70%;
+    height: 4px;
+    background-color: rgb(40,40,40);
+    margin: 8px auto;
+    transition: 0.3s;
+    border-radius: 50px;
+}
+
+#nav-toggle{
+    width: 50px;
+    position: absolute;
+    left: 15px;
+    margin-top: 25px;
+    padding: 0;
+    display: block;
+}
+
+#nav-toggle:hover .bar:nth-child(1){
+    transform: translate(70%,160%) rotate(45deg);
+    width: 30%;
+}
+#nav-toggle:hover .bar:nth-child(3){
+    transform: translate(70%,-160%) rotate(-45deg);
+    width: 30%;
+}
+
+.nav-profile{
+    background: url(https://i.lensdump.com/i/jnARH.jpg) center center no-repeat;
+    background-size: cover;
+    width: 120px;
+    height: 110px;
+    transform:  translate(-2%);
+}
+
+.nav-profile-circle{
+    overflow: hidden;
+    border: 5px solid white;
+    width: 120px;
+    margin-left: 40px;
+    border-radius: 100%;
+    margin-bottom: 50px;
+}
+
+.active{
+    color: white !important;
+    text-shadow: 0px 0px 40px;
+}
+
+@media screen and (max-width:450px){
+    #nav-toggle{
+        -webkit-transform: scale(0.95);
+        -moz-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+}
+
+.heading{
+  color: rgb(60,60,60);
+  margin-left:28vw;
+  padding-top:15vh;
+}
+
+.heading h1{
+  font-size:3em;
+  font-weight: bold;
+}
