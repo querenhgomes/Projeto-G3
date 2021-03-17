@@ -14,7 +14,7 @@
     height: 100vh;
 }
 
-.sidenav span{
+.sidenav .closebtn{
     height: 60px;
     line-height: 50px;
     padding: 8px 8px 10px 35px;
@@ -25,6 +25,8 @@
     color: #818181;
     display: block;
 }
+
+
 
 .sidenav a{
     height: 60px;
@@ -58,7 +60,7 @@
 
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
+    top: 15;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
@@ -77,11 +79,13 @@
 
 #nav-toggle{
     width: 50px;
-    position: absolute;
+    position: fixed;
     left: 15px;
-    margin-top: 25px;
+    margin-top: 6vh;
     padding: 0;
     display: block;
+    z-index: 0;
+    border-radius: 40%;
 }
 
 #nav-toggle:hover .bar:nth-child(1){

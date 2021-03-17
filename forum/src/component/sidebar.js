@@ -8,6 +8,8 @@ import Negocios from './ViewNegocios';
 import Jogos from './ViewJogos';
 import Educacao from './ViewEducacao';
 import Tec from './ViewTec';
+import  SideNav   from "./SideNav.js" ;
+import { Sidenav } from 'rsuite';
 
 
 
@@ -25,6 +27,7 @@ const style={
         return(
          
           <div>
+            
             {console.log(Color)}
             <Router>
             
@@ -44,12 +47,27 @@ const style={
                     
                 </Navbar> */}
                 
+                <Navbar fixed="top"  className="text-primary" style={style}  expand="lg">
+                    
+                    <Navbar.Toggle  className="nav ml-auto text-primary" aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse className="nav mx-auto text-primary" id="basic-navbar-nav">
+                      <Nav  activeKey="/home" onSelect={(selectedKey) => setColor("white")} to="/home" className="mx-auto text-center">
+                      <NavDropdown title="Pedro Fagundes" id="basic-nav-dropdown">
+                              <NavDropdown.Item href="login">Sair</NavDropdown.Item>
+                              </NavDropdown>
+                      </Nav>
+                      
+                    </Navbar.Collapse>
+                    
+                </Navbar>
+                
                <Switch>
                     <Route path="/home" exact={true}  component={Home}/>
                     <Route path="/jogos" exact={true}  component={Jogos}/>
                     <Route path="/negocios" exact={true} component={Negocios}/>
                     <Route path="/educacao" exact={true} component={Educacao}/>
                     <Route path="/tec" exact={true} component={Tec}/>
+                    <Route path="/login" exact={true} component={SideNav}/>
                 </Switch>   
             
                 </Router>

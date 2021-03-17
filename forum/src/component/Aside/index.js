@@ -22,19 +22,23 @@ const items = [
 function Aside() {
     const [isOpen, setIsOpen] = useState(false)
     const hidden = {
-        visibility: "hidden"
+        visibility: "hidden",
+        zIndex: 5
     }
     const show = {
-        visibility: "visible"
+        visibility: "visible",
+        zIndex: 5
     }
 
     const open = {
         width: "220px",
-        marginLeft: "0px"
+        marginLeft: "0px",
+        zIndex: 5
     }
     const closed = {
         width: "0px",
-        marginLeft: "0px"
+        marginLeft: "0px",
+        zIndex: 5
     }
     function openNav() {
         console.log(isOpen);
@@ -64,25 +68,27 @@ function Aside() {
 
             <div id="mySidenav" className="sidenav" style={isOpen ? open : closed}>
                 <span className="closebtn" onClick={openNav}>&times;</span>
+                <br></br>
+                <br></br>
                 <div className="text-effect">
                     <a href="/home" className="active">
                         <span className="glyphicon glyphicon-home"></span>&nbsp;Home
                     </a>
                     <a href="/jogos">
                         <span className="glyphicon glyphicon-user"></span>
-                        &nbsp;Portfolio
+                        &nbsp;Jogos
                     </a>
                     <a href="/negocios">
                         <span className="glyphicon glyphicon-tasks"></span>
-                        &nbsp;Projects
+                        &nbsp;Negocios
                     </a>
                     <a href="/educacao">
                         <span className="glyphicon glyphicon-phone-alt"></span>
-                        &nbsp;Contact
+                        &nbsp;Educação
                     </a>
                     <a href="/tec">
                         <span className="glyphicon glyphicon-phone-alt"></span>
-                        &nbsp;Contact
+                        &nbsp;Tecnologia
                     </a>
                 </div>
             </div>

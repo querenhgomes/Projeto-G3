@@ -10,13 +10,19 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Aside from "./Aside";
 
+
+
 function Master() {
-    return (
-        <>
-            <Aside />
-            <Sidebar></Sidebar>
-        {/* <Sidenav></Sidenav> */}
-        </>
-    );
+    
+    
+        return (
+            <>
+                <Aside/>
+                <Sidebar></Sidebar>
+            {/* <Sidenav></Sidenav> */}
+            </>
+        );
+   
+    
 }
 export default Master;
