@@ -1,4 +1,11 @@
 import React, {useState} from "react";
+import Home from '../ViewHome';
+import Negocios from '../ViewNegocios';
+import Jogos from '../ViewJogos';
+import Educacao from '../ViewEducacao';
+import Tec from '../ViewTec';
+import {Link as Lonk} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./style.css"
 const items = [
     {
@@ -39,7 +46,7 @@ function Aside() {
         width: "0px",
         marginLeft: "0px",
         zIndex: 5
-    }
+       }
     function openNav() {
         console.log(isOpen);
         setIsOpen(!isOpen);
@@ -60,39 +67,55 @@ function Aside() {
 
     return (
         <>
-            <button id="nav-toggle" className="navbar-toggle" onClick={openNav} style={show}>
+         <Router>
+            <button id="nav-toggle"  className="navbar-toggle" onClick={openNav} style={show}>
                 <span className="bar"></span>
                 <span className="bar"></span>
                 <span className="bar"></span>
             </button>
 
             <div id="mySidenav" className="sidenav" style={isOpen ? open : closed}>
-                <span className="closebtn" onClick={openNav}>&times;</span>
+                {/* <span className="closebtn" onClick={openNav}>&times;</span> */}
                 <br></br>
                 <br></br>
                 <div className="text-effect">
-                    <a href="/home" className="active">
-                        <span className="glyphicon glyphicon-home"></span>&nbsp;Home
-                    </a>
-                    <a href="/jogos">
+                   <div href="/home" className="active">
+                   <Lonk to="/home"  className="active">Home</Lonk>
+                        <span className="glyphicon glyphicon-home"></span>&nbsp;
+                    </div>
+                   <div href="/jogos">
+                   <Lonk to="/jogos"  className="active">Jogos</Lonk>
                         <span className="glyphicon glyphicon-user"></span>
-                        &nbsp;Jogos
-                    </a>
-                    <a href="/negocios">
+                        &nbsp;
+                    </div>
+                    
+                   <div href="/negocios">
+                   <Lonk to="/negocios"  className="active">Negocios</Lonk>
                         <span className="glyphicon glyphicon-tasks"></span>
-                        &nbsp;Negocios
-                    </a>
-                    <a href="/educacao">
+                        &nbsp;
+                    </div>
+                    <div href="/educacao">
+
+                    <Lonk to="/educacao"  className="active">Educação</Lonk>
                         <span className="glyphicon glyphicon-phone-alt"></span>
-                        &nbsp;Educação
-                    </a>
-                    <a href="/tec">
+                        &nbsp;
+                    </div>
+
+                    <div href="/tec">
+                    <Lonk to="/tec"  className="active">Tecnologia</Lonk>
                         <span className="glyphicon glyphicon-phone-alt"></span>
-                        &nbsp;Tecnologia
-                    </a>
+                        &nbsp;
+                    </div>
                 </div>
             </div>
-
+            
+            <Switch>
+            <Route path="/home" exact={true}  component={Home}/>
+            <Route path="/jogos" exact={true}  component={Jogos}/>
+            <Route path="/negocios" exact={true} component={Negocios}/>
+            <Route path="/educacao" exact={true} component={Educacao}/>
+            <Route path="/tec" exact={true} component={Tec}/>
+        </Switch> 
 
             {/* <ul>
                 {items.map((item, idx) => {
@@ -103,6 +126,7 @@ function Aside() {
                     );
                 })}
             </ul> */}
+            </Router>
         </>
     );
 }

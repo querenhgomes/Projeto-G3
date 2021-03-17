@@ -71,29 +71,35 @@
     display: block;
     width: 70%;
     height: 4px;
-    background-color: rgb(40,40,40);
+    background-color: white;
     margin: 8px auto;
     transition: 0.3s;
     border-radius: 50px;
 }
 
 #nav-toggle{
+    background-color: transparent;
+    height: 49px;
     width: 50px;
     position: fixed;
     left: 15px;
-    margin-top: 6vh;
+    margin-top: .1vh;
     padding: 0;
     display: block;
-    z-index: 0;
+    z-index: 1000000 !important;
     border-radius: 40%;
 }
 
 #nav-toggle:hover .bar:nth-child(1){
-    transform: translate(70%,160%) rotate(45deg);
+    transform: translate(30%,70%) rotate(70deg);
+    width: 30%;
+}
+#nav-toggle:hover .bar:nth-child(2){
+    transform: translate(70%,-70%) rotate(60deg);
     width: 30%;
 }
 #nav-toggle:hover .bar:nth-child(3){
-    transform: translate(70%,-160%) rotate(-45deg);
+    transform: translate(30%,-70%) rotate(60deg);
     width: 30%;
 }
 
@@ -105,14 +111,6 @@
     transform:  translate(-2%);
 }
 
-.nav-profile-circle{
-    overflow: hidden;
-    border: 5px solid white;
-    width: 120px;
-    margin-left: 40px;
-    border-radius: 100%;
-    margin-bottom: 50px;
-}
 
 .active{
     color: white !important;
