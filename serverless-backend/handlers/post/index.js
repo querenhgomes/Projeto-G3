@@ -1,7 +1,7 @@
 const api = require("lambda-api")();
 const jwt = require("jwt-simple");
 const db = require("monk")(
-    process.env.MONGODB_URI
+    "mongodb+srv://user:user@projeto-9.9l4fn.mongodb.net/Project?retryWrites=true&w=majority"
 );
 db.then(() => {
     console.log("Connected to server");
@@ -12,19 +12,66 @@ const SECRET = process.env.JWT_SECRET;
 
 api.post("/post", async (req, res) => {
     try {
-        return res.json(req.body);
+        const body = req.body;
+        // Nos cards de postagem será utilizado apenas o 
+        // nome do autor, título, data de postagem e os likes. 
+        const post = {
+            authorId: body.authorId,
+            title: body.title,
+            content: body.content,
+            likes: [],
+            createdAt: Date.now()
+        }
+        // save to DB
+        await forums.insert(post).then((result) => {
+            // console.log(result);
+            res.status(201).json({ msg: "success", data: result });
+        }).catch((err) => {
+            console.log("Error", err.message);
+            res.status(400).json({ msg: err.message });
+        });
+
     } catch (err) {
-        console.log(err.message);
-        return res.error(500, err.message);
+        console.log("Error", err.message);
+        res.status(400).json({ msg: err.message });
     }
 });
 
 api.get("/posts", async (req, res) => {
     try {
-        return res.json(req.body);
+        // Database lookup
+        await forums.find().then((result) => {
+            if (result) {
+                res.json({ msg: "success", data: result });
+            } else {
+                res.error(404, "post not found")
+            }
+        }).catch((err) => {
+            console.log("Error", err.message);
+            res.status(500).json({ msg: err.message });
+        })
     } catch (err) {
-        console.log(err.message);
-        return res.error(500, err.message);        
+        console.log("Error", err.message);
+        res.status(400).json({ msg: err.message });
+    }
+});
+
+api.get("/posts/:id", async (req, res) => {
+    try {
+        // Database lookup
+        await forums.findOne({ _id: req.params.id }).then((result) => {
+            if (result) {
+                res.json({ msg: "success", data: result });
+            } else {
+                res.status(404).json({ msg: "post not found" });
+            }
+        }).catch((err) => {
+            console.log("Error", err.message);
+            res.status(500).json({ msg: err.message });
+        })
+    } catch (err) {
+        console.log("Error", err.message);
+        res.status(400).json({ msg: err.message });
     }
 });
 

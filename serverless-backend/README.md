@@ -235,7 +235,7 @@ Register new user<br/><br/>
 
 **Response**: `{ "message": String, "data": { "email": String, "hashedPassword": String, "username": String } } `<br/><br/>
 
-  
+
 
 ### `/login` - `POST`
 
@@ -248,3 +248,55 @@ Authenticate existing user<br/><br/>
 **Body**: `{ "email": String, "password": String }`<br/><br/>
 
 **Response**: `{ "message": String, "data": <whatever was sent in the body request> }`<br/><br/>
+
+
+### `/user` - `GET`
+
+Validate user toke<br/><br/>
+
+**Headers**: `Authorization: Bearer <token>`<br/><br/>
+
+**Success Status Code**: `200`<br/><br/>
+
+**Body**: no body needed<br/><br/>
+
+**Response**: `{ "message": String, "data": { "user": String, "email": String, "_id": String, "token": String }  }`<br/><br/>
+
+
+## Post endpoints
+
+
+### `/post` - `POST`
+Create new post<br/><br/>
+
+**Headers**: `Authorization: Bearer <token>`<br/><br/>
+
+**Success Status Code**: `200`<br/><br/>
+
+**Body**: `{ "authorId": String, "title": String, "content": String }`<br/><br/>
+
+**Response**: `{ "message": String, "data": { "_id": String, "authorId": String, "title": String, "content": String, "createdAt": Number, "likes": [ "userId": String ]  }  }`<br/><br/>
+
+
+### `/posts` - `GET`
+Fetch existing posts<br/><br/>
+
+**Headers**: `Authorization: Bearer <token>`<br/><br/>
+
+**Success Status Code**: `200`<br/><br/>
+
+**Body**: no body needed<br/><br/>
+
+**Response**: `{ "message": String, "data": [ { "_id": String, "authorId": String, "title": String, "content": String, "createdAt": Number, "likes": [ "userId": String ]  } ] }`<br/><br/>
+
+
+### `/posts/:postId` - `GET`
+Fetch post<br/><br/>
+
+**Headers**: `Authorization: Bearer <token>`<br/><br/>
+
+**Success Status Code**: `200`<br/><br/>
+
+**Body**: `{ "authorId": String, "title": String, "content": String }`<br/><br/>
+
+**Response**: `{ "message": String, "data": { "_id": String, "authorId": String, "title": String, "content": String, "createdAt": Number, "likes": [ "userId": String ]  }  }`<br/><br/>

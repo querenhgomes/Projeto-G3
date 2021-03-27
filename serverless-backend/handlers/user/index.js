@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const Joi = require("joi");
 const jwt = require("jwt-simple");
 const db = require("monk")(
-    process.env.MONGODB_URI
+    "mongodb+srv://user:user@projeto-9.9l4fn.mongodb.net/Project?retryWrites=true&w=majority"
 );
 db.then(() => {
     console.log("Connected to server");
@@ -11,8 +11,24 @@ db.then(() => {
 const users = db.get("login");
 users.createIndex("email", { unique: true });
 
-const SECRET = process.env.JWT_SECRET;
+const SECRET = "user-password";
 
+const requireAuth = async (req, res, next) => {
+    try {
+        const authorizationHeader = req.headers.authorization
+        if (authorizationHeader.startsWith("Bearer ")) {
+            let token = authorizationHeader.substring(7, authorizationHeader.length)
+            const payload = jwt.decode(token, SECRET);
+            req.authorized = true;
+            req.userId = payload.sub;
+            next(); // continue execution
+        } else {
+            return res.status(402).json({ msg: "Not Authorized" });
+        }
+    } catch (err) {
+        return res.status(401).json({ msg: "Not Authorized" });
+    }
+}
 
 function generateToken(userId) {
     const timestamp = new Date().getTime();
@@ -35,7 +51,7 @@ api.post("/signup", async (req, res) => {
         });
         const bodyValidation = schema.validate(req.body);
         if (bodyValidation.error) {
-            return res.error(400, bodyValidation.error.message);
+            throw new Error(bodyValidation.error.message)
         }
 
         // Password hashing
@@ -59,14 +75,14 @@ api.post("/signup", async (req, res) => {
         }).catch((err) => {
             console.log(err.message);
             if (err.message.startsWith("E11000")) {
-                res.error(400, "Invalid user data");    
+                res.status(400).json({ msg: "Invalid user data" });
             } else {
-                res.error(400, err.message);    
+                res.status(500).json({ msg: err.message });
             }
         });
     } catch (err) {
-        console.log(err.message);
-        return res.error(500, err.message);
+        console.log("Error", err.message);
+        res.status(400).json({ msg: err.message });
     }
 });
 
@@ -81,7 +97,7 @@ api.post("/login", async (req, res) => {
         });
         const bodyValidation = schema.validate(req.body);
         if (bodyValidation.error) {
-            return res.error(400, bodyValidation.error.message);
+            throw new Error(bodyValidation.error.message)
         }
 
         // Database lookup
@@ -100,18 +116,38 @@ api.post("/login", async (req, res) => {
                     }
                     res.json({ msg: "success", data: authenticatedUser });
                 } else {
-                    res.error(400, "email or password incorrect")
+                    res.status(400).json({ msg: "email or password incorrect" })
                 }
             } else {
-                res.error(400, "email or password incorrect")
+                res.status(400).json({ msg: "email or password incorrect" })
             }
         }).catch((err) => {
-            console.log("error", err.message);
-            return res.error(500, err.message);        
+            console.log("Error", err.message);
+            res.status(500).json({ msg: err.message });    
         })
     } catch (err) {
-        console.log(err.message);
-        return res.error(500, err.message);        
+        console.log("Error", err.message);
+        res.status(400).json({ msg: err.message });   
+    }
+});
+
+api.get("/user", requireAuth, async (req, res) => {
+    try {
+        await users.findOne({ _id: req.userId }).then((result) => {
+            if (result) {
+                result.token = generateToken(result._id);
+                delete result["pass"];
+                res.json({ msg: "success", data: result });
+            } else {
+                res.status(404).json({ msg: "post not found" });
+            }
+        }).catch((err) => {
+            console.log("Error", err.message);
+            res.status(500).json({ msg: err.message });
+        })
+    } catch (err) {
+        console.log("Error", err.message);
+        res.status(500).json({ msg: err.message });
     }
 });
 

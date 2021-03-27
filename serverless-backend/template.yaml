@@ -51,6 +51,11 @@ Resources:
           Properties:
             Path: /login
             Method: post
+        User:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /user
+            Method: get
       Layers:
             - !Ref SharedLibsLayer
   PostFunction:
@@ -68,6 +73,11 @@ Resources:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /posts
+            Method: get
+        GetPost:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /posts/{id}
             Method: get
       Layers:
             - !Ref SharedLibsLayer
