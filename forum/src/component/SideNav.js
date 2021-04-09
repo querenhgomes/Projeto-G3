@@ -18,19 +18,57 @@ function SideNav(props) {
      
       
     return(
-       <>
-       <div>
-            lhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+         <>
+         <Router>
+         <br></br><br></br>
+      <div class="box-form">
+            <br></br>
+	<div class="left">
+      <br></br>
+		<div class="overlay">
+		<h1>Login Page.</h1>
+		<p>Faça seu login para continuar</p>
+		<br></br><br></br><br></br>
+		</div>
+	</div>
 
-            Porque nós o usamos?
-                  É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de "Conteúdo aqui, conteúdo aqui", fazendo com que ele tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por 'lorem ipsum' mostra vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).
+	
+		<div class="right">
+		<h5>Login</h5>
+            <br></br><br></br><br></br><br></br>
+		<p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p>
+		<div class="inputs">
+			<input type="text" placeholder="user name"/>
+			
+			<input type="password" placeholder="password"/>
+		</div>
+            <br></br>
+			
+			
+		<div class="remember-me--forget-password">
+            <br></br>	
+	<label>
+		<input type="checkbox" name="item" checked/>
+		<span class="text-checkbox">Remember me</span>
+	</label>
+			<p>forget password?</p>
+		</div>
+            <br></br>
+			
+            <Lonk variant="secondary" to="/home" onClick={props.IsLogged}>Logar</Lonk>
+	            </div>
+	
+            </div>
 
 
-                  De onde ele vem?
-                        Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica datada de 45 AC. Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia, pesquisou uma das mai
-                  </div>
-                  <Button variant="secondary" onClick={props.IsLogged}>Logar</Button>
-</>
+
+            <Switch>
+            <Route path="/home" exact={true}  component={Home}/>
+           
+        </Switch> 
+
+      </Router>
+           </>
    );
     
       }
@@ -40,3 +78,4 @@ function SideNav(props) {
 
 export default SideNav
 
+// <Button variant="secondary" onClick={props.IsLogged}>Logar</Button>

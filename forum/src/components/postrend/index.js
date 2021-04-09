@@ -1,28 +1,24 @@
 import { Button, Modal, Card, Container, Row, Col, Image,Media } from 'react-bootstrap'
 import React, {useState, useEffect} from 'react';
 
-export default function Moodal(props) {
+export default function Post(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
       <div>
-        <br></br>
+       
         <Card variant="primary" onClick={handleShow}>
           <Card.Title border="blue">
           <Media>
-  <img
-    width={64}
-    height={64}
-    className="mr-1"
-    src={props.linkImage}
-    alt="Generic placeholder"
-  />
+  
+  
   <Media.Body>
-    <h5>{props.nome}</h5>
-    <p>
+    
+    <h6>
      {props.titulo}
-    </p> <hr></hr>
+     </h6>
+     <hr></hr>
   </Media.Body>
 </Media>
           </Card.Title>
@@ -47,13 +43,14 @@ export default function Moodal(props) {
             <br></br>
             {props.email}
           </Modal.Body>
-
+          {props.dataPub}
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
           </Modal.Footer>
         </Modal>
+        <br></br>
       </div>
     );
 }

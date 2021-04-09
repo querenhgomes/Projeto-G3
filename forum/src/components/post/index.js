@@ -1,13 +1,17 @@
 import { Button, Modal, Card, Container, Row, Col, Image,Media } from 'react-bootstrap'
 import React, {useState, useEffect} from 'react';
 
-export default function Moodal(props) {
+export default function Post(props) {
+
+
+
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
       <div>
-        <br></br>
+       
         <Card variant="primary" onClick={handleShow}>
           <Card.Title border="blue">
           <Media>
@@ -18,8 +22,9 @@ export default function Moodal(props) {
     src={props.linkImage}
     alt="Generic placeholder"
   />
+  <h5>{props.nome}</h5>
   <Media.Body>
-    <h5>{props.nome}</h5>
+    
     <p>
      {props.titulo}
     </p> <hr></hr>
@@ -47,13 +52,20 @@ export default function Moodal(props) {
             <br></br>
             {props.email}
           </Modal.Body>
+          {props.dataPub}
+          <hr></hr>
+          Comentários Here
 
           <Modal.Footer>
+          
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
+           
           </Modal.Footer>
+          
         </Modal>
+        <br></br>
       </div>
     );
 }

@@ -24,10 +24,6 @@
   color: white;
 }
 
-.Header1 {
-   color: cyan;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -40,4 +36,3 @@
     transform: rotate(360deg);
   }
 }
-

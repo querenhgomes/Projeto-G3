@@ -34,14 +34,28 @@ function Home() {
           
           <div className="row">
   
+          <div height="150px" className="sidebar-expanded col-2 d-none d-md-block overflow-auto">
+            <div className="" >
+                <div className="">
+
+              {Nomer.map((item, key) => {
+                console.log(key)
+                return (
+                  <Post className="" key={key} gender={item.gender} titulo={item.location.timezone.description} email={item.email}  conteudo={"conteudo"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
+                )
   
+  
+              })}
+              </div>
+            </div>
+            </div>
   
             <div className="col">
               {Nomer.map((item, key) => {
                 console.log(key)
                 return (
                   <>
-                  <Moodal key={key} gender={item.gender} btntext={item.name.title} email={item.email} conteudo={"Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou par"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
+                  <Moodal key={key} nome={item.name.first} titulo={item.location.timezone.description}  linkImage={item.picture.medium}  email={item.email} conteudo={"conteudo"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
                     
                     </>
                 )
@@ -50,18 +64,20 @@ function Home() {
               })}
   
             </div>
-            <div className="sidebar-expanded col-2 d-none d-md-block">
+            <div height="150px" className="sidebar-expanded col-2 d-none d-md-block overflow-auto">
+            <div className="" >
                 <div className="">
 
               {Nomer.map((item, key) => {
                 console.log(key)
                 return (
-                  <Post className="" key={key} gender={item.gender} btntext={item.name.title} email={item.email} conteudo={"Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou par"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
+                  <Post className="" key={key} gender={item.gender} titulo={item.location.timezone.description} email={item.email}  conteudo={"conteudo"} resumo={"Lorem Ipsum é simplesmente uma simO que é Lorem Ipsum?"} />
                 )
   
   
               })}
               </div>
+            </div>
             </div>
   
   
