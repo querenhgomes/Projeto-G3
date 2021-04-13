@@ -27,6 +27,7 @@ export default function Criar(props) {
               <Form.Control
                 type="text"
                 placeholder="escreva o titulo da sua opinião"
+                maxLength="40"
               />
             </Form.Group>
 
@@ -35,6 +36,7 @@ export default function Criar(props) {
               <Form.Control
                 type="text"
                 placeholder="faça um pequeno resumo da sua opinião"
+                maxLength="70"
               />
             </Form.Group>
             <Form.Group controlId="opiniao">
@@ -42,6 +44,8 @@ export default function Criar(props) {
               <Form.Control
                 as="textarea"
                 placeholder="digite sua opnião aqui"
+                maxLength="1000"
+                className="h-50"
               />
             </Form.Group>
     <hr></hr>
@@ -73,7 +77,7 @@ export default function Criar(props) {
           <Button variant="secondary" onClick={handleClose}>
             Fechar
           </Button>
-          <Button variant="primary">Salvar</Button>
+          <Button variant="primary">Postar</Button>
         </Modal.Footer>
       </Modal>
     </>

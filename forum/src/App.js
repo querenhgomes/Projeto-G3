@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <Navbar bg="primary sticky-top">
-        <Navbar.Brand>Randopinion (com umaletra bonita aqui)</Navbar.Brand>
+        <Navbar.Brand>Randopinion</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
