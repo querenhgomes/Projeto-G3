@@ -19,8 +19,7 @@ function Home() {
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
+      
       
   
         <div>

@@ -19,9 +19,7 @@ export default function Educacao(){
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
-      
+    
   
         <div>
           

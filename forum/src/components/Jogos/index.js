@@ -20,8 +20,7 @@ export default function Jogos() {
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
+      
       
   
         <div>

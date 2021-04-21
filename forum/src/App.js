@@ -12,6 +12,7 @@ import Criar from "./components/Criar"
 
 import { ArrowLeft } from "@material-ui/icons";
 import React, { useState } from "react";
+import { hexToRgb } from "@material-ui/core";
 
 function App() {
   const [show, setShow] = useState("Home");
@@ -31,18 +32,22 @@ function App() {
     case "Jogos":
       Conteudo =
         "Aqui você acha tudo sobre o que as pessoas acham no mundo dos games";
+        window.scrollTo(0,0);
       break;
 
     case "Negocios":
       Conteudo = "Fique por dentro das opiniões do mundo dos valores";
+      window.scrollTo(0,0);
       break;
 
     case "Educação":
       Conteudo = "Fique por dentro das opiniões sobre educação";
+      window.scrollTo(0,0);
       break;
 
     case "Tecnologia":
       Conteudo = "Você é doido por tecnologia? está na página certa";
+      window.scrollTo(0,0);
       break;
 
     default:
@@ -51,7 +56,9 @@ function App() {
 
   return (
     <>
-      <Navbar bg="primary sticky-top">
+    <body style={StyleBody}>
+    
+      <Navbar  bg="warning sticky-top">
         <Navbar.Brand>Randopinion</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
@@ -64,10 +71,10 @@ function App() {
 
       <Router>
         <div class="container">
-          <Jumbotron fluid>
+          <Jumbotron fluid style={Stylejumbo}>
             <Container>
-              <h1>Você está lendo sobre {show}</h1>
-              <p>{Conteudo}</p>
+              <h2>Você está na aba {show}</h2>
+              <h3>{Conteudo}</h3>
               <p><Criar/></p>
             </Container>
           </Jumbotron>
@@ -81,7 +88,7 @@ function App() {
               <Dropdown.Toggle
                 style={buttonS}
                 className=""
-                variant="success"
+                
                 id="dropdown-basic"
               >
                 {show}
@@ -147,6 +154,7 @@ function App() {
           </div>
         </div>
       </Router>
+      </body>
     </>
   );
 }
@@ -154,12 +162,28 @@ function App() {
 const buttonS = {
   borderRadius: "50px",
   float: "right",
+  backgroundColor: hexToRgb('#141414'),
 };
+
 const dropDiv = {
   right: "30px",
   position: "fixed",
   bottom: "12px",
   zIndex: "$zindex-fixed",
 };
+const StyleBody = {
+  backgroundColor: hexToRgb('#2e2e2d'),
+  
+};
+
+const Stylejumbo = {
+  backgroundColor: hexToRgb('#8c8c8b'),
+  borderRadius:'20px',
+  height: '250px',
+  textAlign: 'center',
+  
+};
+
+
 
 export default App;

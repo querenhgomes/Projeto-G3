@@ -1,5 +1,6 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
+import { hexToRgb } from "@material-ui/core";
 
 export default function Criar(props) {
   const [show, setShow] = useState(false);
@@ -7,7 +8,7 @@ export default function Criar(props) {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="warning" onClick={handleShow}>
         Opine aqui e agora
       </Button>
 
@@ -17,14 +18,15 @@ export default function Criar(props) {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={myStyle}>
           <Modal.Title>Compartilhe sua opinião</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={myStyle}>
           <Form>
             <Form.Group controlId="titulo">
               <Form.Label>Título</Form.Label>
               <Form.Control
+                style={textBox}
                 type="text"
                 placeholder="escreva o titulo da sua opinião"
                 maxLength="40"
@@ -34,6 +36,7 @@ export default function Criar(props) {
             <Form.Group controlId="resumo">
               <Form.Label>Resumo</Form.Label>
               <Form.Control
+              style={textBox}
                 type="text"
                 placeholder="faça um pequeno resumo da sua opinião"
                 maxLength="70"
@@ -42,6 +45,7 @@ export default function Criar(props) {
             <Form.Group controlId="opiniao">
               <Form.Label>Opinião</Form.Label>
               <Form.Control
+              style={textBox}
                 as="textarea"
                 placeholder="digite sua opnião aqui"
                 maxLength="1000"
@@ -49,9 +53,9 @@ export default function Criar(props) {
               />
             </Form.Group>
     <hr></hr>
-            <Form.Group controlId="assunto">
+            <Form.Group controlId="assunto" >
               <Form.Label>Agora selecione um assunto que mais se encaixa sua opnião</Form.Label>
-              <Form.Control as="select" defaultValue="escolha">
+              <Form.Control style={textBox} as="select" defaultValue="escolha">
                 <option>escolha</option>
                 <option>Jogos</option>
                 <option>Negócios</option>
@@ -62,7 +66,7 @@ export default function Criar(props) {
 
             <Form.Group controlId="assunto2">
               <Form.Label>Um outro assunto</Form.Label>
-              <Form.Control as="select" defaultValue="escolha">
+              <Form.Control style={textBox} as="select" defaultValue="escolha">
                 <option>escolha</option>
                 <option>Geral</option>
                 <option>Jogos</option>
@@ -73,8 +77,8 @@ export default function Criar(props) {
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Modal.Footer style={myStyle}>
+          <Button variant="secondary" onClick={handleClose} >
             Fechar
           </Button>
           <Button variant="primary">Postar</Button>
@@ -83,3 +87,13 @@ export default function Criar(props) {
     </>
   );
 }
+const myStyle = {
+  backgroundColor: hexToRgb('#1f1902'),
+  color: 'white'
+}
+
+const textBox = {
+  backgroundColor: hexToRgb('#f2e2a5'),
+  color: 'white'
+}
+

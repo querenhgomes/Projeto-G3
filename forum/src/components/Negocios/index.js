@@ -19,8 +19,7 @@ export default function Negocios() {
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
+     
       
   
         <div>

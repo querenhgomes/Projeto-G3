@@ -7,7 +7,7 @@ export default function Comentarios(props) {
     return (
       <div>
        
-       <Alert  variant="secondary">
+       <Alert  variant="info">
   <Alert.Heading >Nome: {props.nome}</Alert.Heading>
   <p>
   

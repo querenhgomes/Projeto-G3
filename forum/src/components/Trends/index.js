@@ -20,9 +20,7 @@ export default function Trends() {
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
-      
+     
   
         <div>
           

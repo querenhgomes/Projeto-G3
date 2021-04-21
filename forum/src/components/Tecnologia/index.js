@@ -20,8 +20,7 @@ export default function Tecnologia() {
   
       <div className="App">
       <br></br>
-      <br></br>
-      <br></br>
+      
       
   
         <div>
